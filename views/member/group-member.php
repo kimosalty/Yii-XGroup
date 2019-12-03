@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use app\assets\AppAsset;
+use yii\helpers\Url;
 
 /* @var $peoples */
 AppAsset::addCss($this, Yii::$app->request->baseUrl . "/css/lxp_peopleview.css");
@@ -38,7 +39,7 @@ AppAsset::addCss($this, Yii::$app->request->baseUrl . "/css/lxp_peopleview.css")
                                     <a href="">个人主页</a>
                                 </li>
                                 <li>
-                                    <a href="../web/index.php?r=publication/group-publication">论文/项目</a>
+                                    <a href="<?php echo Url::to(['publication/group-publication','var' => $people->leader]) ?>">论文/项目</a>
                                 </li>
                             </ul>
                         </div>
@@ -71,7 +72,7 @@ AppAsset::addCss($this, Yii::$app->request->baseUrl . "/css/lxp_peopleview.css")
                                     <a href="">个人主页</a>
                                 </li>
                                 <li>
-                                    <a href="../web/index.php?r=publication/group-publication">论文/项目</a>
+                                    <a href="<?php echo Url::to(['publication/group-publication','var' => $people->leader]) ?>">论文/项目</a>
                                 </li>
                             </ul>
                         </div>
@@ -104,7 +105,7 @@ AppAsset::addCss($this, Yii::$app->request->baseUrl . "/css/lxp_peopleview.css")
                                     <a href="">个人主页</a>
                                 </li>
                                 <li>
-                                    <a href="../web/index.php?r=publication/group-publication">论文/项目</a>
+                                    <a href="<?php echo Url::to(['publication/group-publication','var' => $people->leader]) ?>">论文/项目</a>
                                 </li>
                             </ul>
                         </div>
