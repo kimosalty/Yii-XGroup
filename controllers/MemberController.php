@@ -89,7 +89,11 @@ class MemberController extends Controller
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
             if ($model->upload($nowTime)) {
                 // 文件上传成功
-                $model->img = 'uploads/portrait/' . $nowTime . '.' . $model->imageFile->extension;
+                if($model->imageFile!=null){
+                    $model->img = 'uploads/portrait/' . $nowTime . '.' . $model->imageFile->extension;
+                }else{
+                    $model->img = '';
+                }
                 if ($model->load(Yii::$app->request->post()) && $model->save()) {
                     return $this->redirect(['view', 'id' => $model->memberid]);
                 }

@@ -4,103 +4,115 @@ use yii\helpers\Html;
 use app\assets\AppAsset;
 
 /* @var $peoples */
+AppAsset::addCss($this, Yii::$app->request->baseUrl . "/css/lxp_peopleview.css");
 ?>
 
-<section id="team" class="wow fadeInUp">
-    <div class="section-header">
-        <h2>Our Team</h2>
-    </div>
 
-    <div class="section-header2">
-        <h2>博士研究生</h2>
-    </div>
-    <div class="row">
-        <?php foreach ($peoples as $people): ?>
-            <?php if ($people->title == "博士研究生") { ?>
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic">
-                            <?php if ($people->img == null) { ?>
-                                <?= Html::img('img/team1.jpg', []) ?>
-                            <?php } else { ?>
-                                <?= Html::img($people->img, []) ?>
-                            <?php } ?>
-                        </div>
-                        <div class="details">
-                            <h4><?= $people->leader ?></h4>
-                            <span>研究方向：<?= $people->keywords ?></span>
-                            <span>邮箱：<?= $people->mail ?></span>
-                            <div class="social">
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                                <a href="../web/index.php?r=publication/publicationview"><i
-                                            class="fa fa-facebook"></i></a>
+    <div class="container-fluid">
+        <h1 class="pb-3 mb-4 text-dark border-bottom font-italic" style="text-align: center">
+            OUR TEAM
+        </h1>
+
+        <h3 class="pb-3 mb-4 font-italic border-bottom">
+            博士研究生
+        </h3>
+        <div class="row">
+            <?php foreach ($peoples as $people): ?>
+                <?php if ($people->title=="博士研究生") { ?>
+                    <div class="col-md-3 col-sm-6 mb-2">
+                        <div class="our-team">
+                            <div class="pic">
+                                <?php if ($people->img==null) { ?>
+                                    <img src="img/team1.jpg">
+                                <?php }else { ?>
+                                    <img src="<?= $people->img ?>">
+                                <?php } ?>
                             </div>
+                            <div class="team-content">
+                                <h3 class="title"><?= $people->leader ?></h3>
+                                <span class="font-italic">方向：<?= $people->keywords ?></span>
+                                <p>邮箱：<?= $people->mail ?></p>
+                            </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="">个人主页</a>
+                                </li>
+                                <li>
+                                    <a href="../web/index.php?r=publication/group-publication">论文/项目</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-            <?php } ?>
-        <?php endforeach; ?>
-    </div>
-
-    <div class="section-header2">
-        <h2>硕士研究生</h2>
-    </div>
-    <div class="row">
-        <?php foreach ($peoples as $people): ?>
-            <?php if ($people->title == "硕士研究生") { ?>
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic">
-                            <?php if ($people->img == null) { ?>
-                                <?= Html::img('img/team1.jpg', []) ?>
-                            <?php } else { ?>
-                                <?= Html::img($people->img, []) ?>
-                            <?php } ?>
-                        </div>
-                        <div class="details">
-                            <h4><?= $people->leader ?></h4>
-                            <span>研究方向：<?= $people->keywords ?></span>
-                            <span>邮箱：<?= $people->mail ?></span>
-                            <div class="social">
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                                <a href="../web/index.php?r=publication/publicationview"><i
-                                            class="fa fa-facebook"></i></a>
+                <?php } ?>
+            <?php endforeach; ?>
+        </div>
+        <h3 class="pb-3 mb-4 font-italic border-bottom">
+            硕士研究生
+        </h3>
+        <div class="row">
+            <?php foreach ($peoples as $people): ?>
+                <?php if ($people->title=="硕士研究生") { ?>
+                    <div class="col-md-3 col-sm-6 mb-2">
+                        <div class="our-team">
+                            <div class="pic">
+                                <?php if ($people->img==null) { ?>
+                                    <img src="img/team1.jpg">
+                                <?php }else { ?>
+                                    <img src="<?= $people->img ?>">
+                                <?php } ?>
                             </div>
+                            <div class="team-content">
+                                <h3 class="title"><?= $people->leader ?></h3>
+                                <span class="font-italic">方向：<?= $people->keywords ?></span>
+                                <p>邮箱：<?= $people->mail ?></p>
+                            </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="">个人主页</a>
+                                </li>
+                                <li>
+                                    <a href="../web/index.php?r=publication/group-publication">论文/项目</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-            <?php } ?>
-        <?php endforeach; ?>
-    </div>
-
-    <div class="section-header2">
-        <h2>本科生</h2>
-    </div>
-    <div class="row">
-        <?php foreach ($peoples as $people): ?>
-            <?php if ($people->title == "本科生") { ?>
-                <div class="col-lg-3 col-md-6">
-                    <div class="member">
-                        <div class="pic">
-                            <?php if ($people->img == null) { ?>
-                                <?= Html::img('img/team1.jpg', []) ?>
-                            <?php } else { ?>
-                                <?= Html::img($people->img, []) ?>
-                            <?php } ?>
-                        </div>
-                        <div class="details">
-                            <h4><?= $people->leader ?></h4>
-                            <span>研究方向：<?= $people->keywords ?></span>
-                            <span>邮箱：<?= $people->mail ?></span>
-                            <div class="social">
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                                <a href="../web/index.php?r=publication/publicationview"><i
-                                            class="fa fa-facebook"></i></a>
+                <?php } ?>
+            <?php endforeach; ?>
+        </div>
+        <h3 class="pb-3 mb-4 font-italic border-bottom">
+            本科生
+        </h3>
+        <div class="row">
+            <?php foreach ($peoples as $people): ?>
+                <?php if ($people->title=="本科生") { ?>
+                    <div class="col-md-3 col-sm-6 mb-2">
+                        <div class="our-team">
+                            <div class="pic">
+                                <?php if ($people->img==null) { ?>
+                                    <img src="img/team1.jpg">
+                                <?php }else { ?>
+                                    <img src="<?= $people->img ?>">
+                                <?php } ?>
                             </div>
+                            <div class="team-content">
+                                <h3 class="title"><?= $people->leader ?></h3>
+                                <span class="font-italic">方向：<?= $people->keywords ?></span>
+                                <p>邮箱：<?= $people->mail ?></p>
+                            </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="">个人主页</a>
+                                </li>
+                                <li>
+                                    <a href="../web/index.php?r=publication/group-publication">论文/项目</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-            <?php } ?>
-        <?php endforeach; ?>
+                <?php } ?>
+            <?php endforeach; ?>
+        </div>
     </div>
-</section>
+
+
+

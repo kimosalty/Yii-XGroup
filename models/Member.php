@@ -60,7 +60,9 @@ class Member extends \yii\db\ActiveRecord
     public function upload($nowTime)
     {
         if ($this->validate()) {
-            $this->imageFile->saveAs('uploads/portrait/' . $nowTime . '.' . $this->imageFile->extension);
+            if( $this->imageFile != null){
+                $this->imageFile->saveAs('uploads/portrait/' . $nowTime . '.' . $this->imageFile->extension);
+            }
             return true;
         } else {
             return false;
