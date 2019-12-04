@@ -28,7 +28,7 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-<div id="header" style="position: sticky; top: 0;">
+<div id="header" style="position: sticky; position: -webkit-sticky;top: 0;">
     <div id="logo" class="pull-left" style="margin-left: 20%;">
         <h1><a href="/?r=site/index" class="scrollto"><span>X-Group</span></a></h1>
     </div>
@@ -44,9 +44,9 @@ AppAsset::register($this);
         'items' => [
 //            ['label' => 'Group Index', 'url' => ['/site/index']],
             ['label' => 'Homepage', 'url' => ['/home/index'], /*'linkOptions' => ['target' => '_blank']*/],
-            ['label' => 'News', 'url' => ['/news/group-news']],
-            ['label' => 'Members', 'url' => ['/member/group-member']],
             ['label' => 'Publications & Projects', 'url' => ['/publication/group-publication']],
+            ['label' => 'Members', 'url' => ['/member/group-member']],
+            ['label' => 'News', 'url' => ['/news/group-news']],
             Yii::$app->user->isGuest ?
                 ['label' => 'Login', 'url' => ['/site/login']]
                 : ['label' => 'Management',
@@ -74,6 +74,7 @@ AppAsset::register($this);
                     ['label' => 'Group News', 'url' => '/?r=news'],
 
                 ]]
+
         ],
 
     ]);
@@ -90,11 +91,16 @@ AppAsset::register($this);
     ?>
 
 </div>
+<div class="wrap">
 
+    <div class="container">
+        <?= Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
+        <?= Alert::widget() ?>
 
-<?= $content ?>
-
-
+    </div>
+</div>
 
 <footer class="footer">
     <div class="container">
@@ -103,16 +109,6 @@ AppAsset::register($this);
 </footer>
 
 <?php $this->endBody() ?>
-<!--<script type="javascript">-->
-<!--    window.addEventListener('scroll', function () {-->
-<!--        let t = $('body, html').scrollTop();-->
-<!--        if (t > 0) {-->
-<!--            $('.sticky').addClass('sticky-active')-->
-<!--        } else {-->
-<!--            $('.sticky').removeClass('sticky-active')-->
-<!--        }-->
-<!--    })-->
-<!--</script>-->
 </body>
 </html>
 <?php $this->endPage() ?>

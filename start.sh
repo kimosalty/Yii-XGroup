@@ -1,0 +1,1 @@
+php yii serve

@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use app\models\BannerForm;
+use app\models\News;
+use app\models\Publication;
 use app\models\EntryForm;
 use app\models\GroupIndex;
 use Yii;
@@ -89,13 +91,22 @@ class SiteController extends Controller
         $bannerModel = BannerForm::find()->where(['in', 'id', $imgs])->all();
         $banners = array_map(function ($data) {
             return [
-                'content' => '<img style="width:100% !important;min-width:100 !important;height: auto;" src="' . $data->img_url . '"/>',
+                'content' => '<div class="img" style="background: url(\'' . $data->img_url . '\');" ></div>',
                 'caption' => '<p>' . $data->des . '</p>',
                 'options' => ['onclick' => "window.open('" . Utils::fix_url($data->redirect_url) . "','_self')",
-                    'style' => 'cursor: pointer;'],       //配置对应的样式
+                    'style' => 'cursor: pointer;',
+                    'class' => 'item'],       //配置对应的样式
             ];
         }, $bannerModel);
-        return $this->render('index', ['banners' => $banners]);
+
+        $news = explode(",", $labModel[0]->news);
+        $newsModel = News::find()->where(['in', 'id', $news])->all();
+
+        $publications = explode(",", $labModel[0]->publications);
+        $publicationModel = Publication::find()->where(['in', 'id', $publications])->all();
+
+        return $this->render('index', ['banners' => $banners,
+            'news' => $newsModel, 'publications' => $publicationModel]);
     }
 
     /**
