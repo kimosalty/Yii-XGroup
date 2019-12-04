@@ -32,7 +32,7 @@ $this->title = 'X-Group Home';
                         <span class="date"><?= date_format(date_create($item->date), "M d, Y.") ?></span>
                     </div>
                 <?php endforeach; ?>
-                <div class="news-all">
+                <div class="read-more">
                     <a href="<?= Url::to(['news/group-news']) ?>">Read More <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
@@ -51,46 +51,35 @@ $this->title = 'X-Group Home';
                     <div class="publication-item">
                         <div class="row">
                             <div class="col-md-9">
-                                <h2><a>
-                                        <strong><?= $item->name ?></strong>
+                                <h2>
+                                    <a href="<?= Url::to(['publication/one-publication', 'var2' => $item['name']]) ?>">
+                                        <strong><?= $item['name'] ?></strong>
                                     </a></h2>
                                 <div class="publication-abstract">
-                                    We propose a novel framework to jointly learn the affinity graph and low-rank tensor
-                                    decomposition for multi-view clustering.
+                                    <?= $item['abstract'] ?>
                                 </div>
                                 <div class="publication-authors">
-                                    <span><a href="#">Xingyu Xie</a></span>,
-                                    <span><a href="#">Liqiang Nie</a></span>
+                                    <?php $i = 0; ?>
+                                    <?php foreach ($item['author'] as $key => $author): ?>
+                                        <span><a href="#">
+                                                <?php
+                                                if ($i > 1 && $author != '')
+                                                    echo ', ';
+                                                if ($key != 'id')
+                                                    echo $author;
+                                                $i++; ?>
+                                            </a></span>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <img src="https://zero-lab-pku.github.io/publication/lixia/aaai20_unified_graph_and_low-rank_tensor_learning_for_multi-view_clustering/featured_hudc590d6e4661510a4c3fd73aef75fe52_123673_150x0_resize_q90_lanczos.jpg"/>
+                                <img class="col-sm-12 publication-img" src="<?= $item['img'] ?>" alt="Head Image"/>
                             </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
-
-
-                <div class="publication-item">
-                    <div class="row">
-                        <div class="col-md-9">
-                            <h2><a>
-                                    <strong>Unified Graph and Low-rank Tensor Learning for Multi-view
-                                        Clustering.</strong>
-                                </a></h2>
-                            <div class="publication-abstract">
-                                We propose a novel framework to jointly learn the affinity graph and low-rank tensor
-                                decomposition for multi-view clustering.
-                            </div>
-                            <div class="publication-authors">
-                                <span><a href="#">Xingyu Xie</a></span>,
-                                <span><a href="#">Liqiang Nie</a></span>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <img src="https://zero-lab-pku.github.io/publication/lixia/aaai20_unified_graph_and_low-rank_tensor_learning_for_multi-view_clustering/featured_hudc590d6e4661510a4c3fd73aef75fe52_123673_150x0_resize_q90_lanczos.jpg"/>
-                        </div>
-                    </div>
+                <div class="read-more">
+                    <a href="<?= Url::to(['publication/group-publication']) ?>">Read More <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
         </div>

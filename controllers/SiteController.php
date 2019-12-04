@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\BannerForm;
 use app\models\News;
 use app\models\Publication;
+use app\models\Author;
 use app\models\EntryForm;
 use app\models\GroupIndex;
 use Yii;
@@ -103,8 +104,7 @@ class SiteController extends Controller
         $newsModel = News::find()->where(['in', 'id', $news])->all();
 
         $publications = explode(",", $labModel[0]->publications);
-        $publicationModel = Publication::find()->where(['in', 'id', $publications])->all();
-
+        $publicationModel = Publication::find()->where(['in', 'publication.id', $publications])->joinWith(['author'])->asArray()->all();
         return $this->render('index', ['banners' => $banners,
             'news' => $newsModel, 'publications' => $publicationModel]);
     }

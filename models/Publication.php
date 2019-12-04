@@ -96,4 +96,6 @@ class Publication extends \yii\db\ActiveRecord
             return false;
         }
     }
+
+
 }
