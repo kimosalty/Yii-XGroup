@@ -10,7 +10,6 @@ use yii\data\Sort;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
  * NewsController implements the CRUD actions for News model.
@@ -76,7 +75,6 @@ class NewsController extends Controller
 
             if ($model->upload()) {
                 // 文件上传成功
-                $model->image = 'uploads/' . '.' . $model->imageFile->extension;
                 if ($model->load(Yii::$app->request->post()) && $model->save()) {
                     return $this->redirect(['view', 'id' => $model->name]);
                 }
@@ -98,16 +96,9 @@ class NewsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        if (Yii::$app->request->isPost) {
-            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
 
-            if ($model->upload()) {
-                // 文件上传成功
-                $model->image = 'uploads/' . $model->imageFile->baseName . '.' . $model->imageFile->extension;
-                if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                    return $this->redirect(['view', 'id' => $model->name]);
-                }
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->name]);
         }
 
         return $this->render('update', [
