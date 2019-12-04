@@ -12,12 +12,29 @@ $request = Yii::$app->request;
 $paperName = $request->get("var2");
 ?>
 <?php foreach ($publications as $publication): ?>
-<?php if ($publication->name==$paperName) { ?>
-<h1><?= $publication->name ?></h1>
-<h1><?= $publication->place ?></h1>
-<img src="<?= $publication->img ?>" class="img-fluid">
-<h1><?= $publication->abstract ?></h1>
-<h1>PDF阅读链接：<a class="font-italic" href="<?= $publication->pdf ?>" ><?= $publication->name ?>.pdf</a></h1>
-<h1><?= $publication->acknowledgement ?></h1>
-<?php } ?>
+    <?php if ($publication->name==$paperName) { ?>
+        <div id="wrapper">
+
+            <div id="journal"><?= $publication->place ?></div>
+            <div id="title">
+                <a href="" class="nounderline"><?= $publication->name ?></a>
+            </div>
+
+            <a href="" class="nounderline"><img src="<?= $publication->img ?>" id="teaser" class="img-fluid"></a>
+        </div>
+        <div id="content">
+            <h1><a id="abstract" href="">Abstract</a></h1>
+            <p><?= $publication->abstract ?></p>
+        </div>
+        <h1><a id="downloads" href="">Downloads</a></h1>
+        <ul>
+            <li>
+                <a href="<?= $publication->pdf ?>"><?= $publication->name ?>.pdf</a>
+            </li>
+        </ul>
+
+        <h1><a id="acks" href="">Acknowledgements</a></h1>
+        <p><?= $publication->acknowledgement ?></p>
+
+    <?php } ?>
 <?php endforeach; ?>
