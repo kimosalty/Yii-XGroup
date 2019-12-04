@@ -22,6 +22,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'pdfFile')->fileInput() ?>
 
+    <?= $form->field($model, 'abstract')->textarea(['rows' => 6]) ?>
+
+    <?= $form->field($model, 'imgFile')->fileInput() ?>
+
+    <?= $form->field($model, 'acknowledgement')->textarea(['rows' => 6]) ?>
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

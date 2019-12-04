@@ -2,6 +2,7 @@
 
 use app\assets\AppAsset;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /* @var $publications */
 /* @var $authors */
@@ -25,7 +26,7 @@ $tempName = $request->get("var");
         <?php if ($publication->authorid==$author->id) { ?>
             <div class="card card-body mb-2">
                 <div>
-                    <p>《<?= $publication->name ?>》 <?= $publication->place ?>, <?= $publication->time ?></p>
+                    <p><a href="<?php echo Url::to(['publication/one-publication','var2' => $publication->name]) ?>">《<?= $publication->name ?>》</a> <?= $publication->place ?>, <?= $publication->time ?></p>
                 </div>
                 <ul>
                     <li>
@@ -35,12 +36,9 @@ $tempName = $request->get("var");
                     </li>
                     <li>论文概要：</li>
                     <div class="alert alert-secondary text-center" role="alert">
-                        <img src="img/paperimg.png" class="img-fluid">
-                        <p>论文论文内容内容论文论文内容内容论文论文内容内容论文论文内容内容论文论文内容内容
-                            论文论文内容内容论文论文内容内容论文论文内容内容论文论文内容内容论文论文内容内容
-                            论文论文内容内容论文论文内容内容论文论文内容内容论文论文内容内容论文论文内容内容</p>
+                        <img src="<?= $publication->img ?>" class="img-fluid">
+                        <p><?= $publication->abstract ?></p>
                     </div>
-                    <li>PDF阅读链接：<a class="font-italic" href="<?= $publication->pdf ?>" ><?= $publication->name ?>.pdf</a></li>
                 </ul>
             </div>
         <?php } ?>

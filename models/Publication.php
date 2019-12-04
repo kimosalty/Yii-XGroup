@@ -14,6 +14,9 @@ use yii\web\UploadedFile;
  * @property string $place 发表地点
  * @property string $pdf pdf
  * @property int $authorid 作者表编号
+ * @property string $abstract 论文摘要
+ * @property string $img 论文图片
+ * @property string $acknowledgement 致谢
  *
  * @property Author $author
  */
@@ -23,6 +26,10 @@ class Publication extends \yii\db\ActiveRecord
      * @var UploadedFile
      */
     public $pdfFile;
+    /**
+     * @var UploadedFile
+     */
+    public $imgFile;
 
     /**
      * {@inheritdoc}
@@ -41,9 +48,11 @@ class Publication extends \yii\db\ActiveRecord
 //            [['name', 'time', 'place', 'pdf', 'authorid'], 'required'],
             [['time'], 'safe'],
             [['authorid'], 'integer'],
-            [['name', 'place', 'pdf'], 'string', 'max' => 1000],
+            [['name', 'place', 'pdf', 'img'], 'string', 'max' => 1000],
+            [['abstract', 'acknowledgement'], 'string'],
             [['authorid'], 'exist', 'skipOnError' => true, 'targetClass' => Author::className(), 'targetAttribute' => ['authorid' => 'id']],
             [['pdfFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf, doc, docx'],
+            [['imgFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'jpg, png'],
         ];
     }
 
@@ -59,6 +68,9 @@ class Publication extends \yii\db\ActiveRecord
             'place' => 'Place',
             'pdf' => 'Pdf',
             'authorid' => 'Authorid',
+            'abstract' => 'Abstract',
+            'img' => 'Img',
+            'acknowledgement' => 'Acknowledgement',
         ];
     }
 
@@ -73,7 +85,12 @@ class Publication extends \yii\db\ActiveRecord
     public function upload()
     {
         if ($this->validate()) {
-            $this->pdfFile->saveAs('uploads/pdf/' . $this->pdfFile->baseName . '.' . $this->pdfFile->extension);
+            if($this->pdfFile != null) {
+                $this->pdfFile->saveAs('uploads/pdf/' . $this->pdfFile->baseName . '.' . $this->pdfFile->extension);
+            }
+            if($this->imgFile != null) {
+                $this->imgFile->saveAs('uploads/publicationimg/' . $this->imgFile->baseName . '.' . $this->imgFile->extension);
+            }
             return true;
         } else {
             return false;

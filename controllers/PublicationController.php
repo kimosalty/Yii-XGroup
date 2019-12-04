@@ -57,6 +57,27 @@ class PublicationController extends Controller
         ]);
     }
 
+
+    public function actionOnePublication()
+    {
+        $queryPub = Publication::find();
+        $queryAut = Author::find();
+        $queryPro = Project::find();
+        $queryPar = Participant::find();
+        $publications = $queryPub->orderBy('id')
+            ->all();
+        $authors = $queryAut->orderBy('id')->all();
+        $projects = $queryPro->orderBy('id')->all();
+        $participants = $queryPar->orderBy('id')->all();
+
+        return $this->render('one-publication',[
+            'publications' => $publications,
+            'authors' => $authors,
+            'projects' => $projects,
+            'participants' => $participants,
+        ]);
+    }
+
     /**
      * Lists all Publication models.
      * @return mixed
@@ -100,9 +121,19 @@ class PublicationController extends Controller
 
         if (Yii::$app->request->isPost) {
             $model->pdfFile = UploadedFile::getInstance($model, 'pdfFile');
+            $model->imgFile = UploadedFile::getInstance($model, 'imgFile');
             if ($model->upload()) {
                 // 文件上传成功
-                $model->pdf = 'uploads/pdf/' . $model->pdfFile->baseName . '.' . $model->pdfFile->extension;
+                if($model->pdfFile!=null){
+                    $model->pdf = 'uploads/pdf/' . $model->pdfFile->baseName . '.' . $model->pdfFile->extension;
+                }else{
+                    $model->pdf = '';
+                }
+                if($model->imgFile!=null){
+                    $model->img = 'uploads/publicationimg/' . $model->imgFile->baseName . '.' . $model->imgFile->extension;
+                }else{
+                    $model->img = '';
+                }
                 if ($model->load(Yii::$app->request->post()) && $model->save()) {
                     return $this->redirect(['view', 'id' => $model->id]);
                 }
@@ -131,9 +162,15 @@ class PublicationController extends Controller
 
         if (Yii::$app->request->isPost) {
             $model->pdfFile = UploadedFile::getInstance($model, 'pdfFile');
+            $model->imgFile = UploadedFile::getInstance($model, 'imgFile');
             if ($model->upload()) {
                 // 文件上传成功
-                $model->pdf = 'uploads/pdf/' . $model->pdfFile->baseName . '.' . $model->pdfFile->extension;
+                if($model->pdfFile!=null){
+                    $model->pdf = 'uploads/pdf/' . $model->pdfFile->baseName . '.' . $model->pdfFile->extension;
+                }
+                if($model->imgFile!=null){
+                    $model->img = 'uploads/publicationimg/' . $model->imgFile->baseName . '.' . $model->imgFile->extension;
+                }
                 if ($model->load(Yii::$app->request->post()) && $model->save()) {
                     return $this->redirect(['view', 'id' => $model->id]);
                 }

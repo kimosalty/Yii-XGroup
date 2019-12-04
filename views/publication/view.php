@@ -35,6 +35,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'place',
             'pdf',
             'authorid',
+            'abstract',
+            'img',
+            'acknowledgement',
         ],
     ]) ?>
 
