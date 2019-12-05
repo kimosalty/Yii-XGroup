@@ -71,7 +71,8 @@ AppAsset::register($this);
                             ['label' => 'Member Projects', 'url' => '/?r=project'],
                             ['label' => 'Project Participants', 'url' => '/?r=participant'],
                             ['label' => 'Member Publication', 'url' => '/?r=publication'],
-                            ['label' => 'Publication Authors', 'url' => '/?r=author']
+                            ['label' => 'Publication Authors', 'url' => '/?r=author'],
+                            ['label' => 'Add Members', 'url' => '/?r=member']
                         ]],
                     ['label' => 'Group News', 'url' => '/?r=news'],
 
