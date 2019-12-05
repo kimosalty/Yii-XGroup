@@ -48,6 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'participants',
             'cooperator',
 
+
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
