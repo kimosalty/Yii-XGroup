@@ -26,7 +26,7 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body id="body">
 <?php $this->beginBody() ?>
 <div id="header">
     <div id="logo" class="pull-left">
@@ -42,11 +42,13 @@ AppAsset::register($this);
         'encodeLabels' => false,
         'activateParents' => true,
         'items' => [
-//            ['label' => 'Group Index', 'url' => ['/site/index']],
-            ['label' => 'Homepage', 'url' => ['/home/index'], /*'linkOptions' => ['target' => '_blank']*/],
+            ['label' => 'Home', 'url' => ['/site#body']],
+//            ['label' => 'Homepage', 'url' => ['/home/index'], /*'linkOptions' => ['target' => '_blank']*/],
             ['label' => 'News', 'url' => ['/news/group-news']],
             ['label' => 'Members', 'url' => ['/member/group-member']],
+            ['label' => 'Highlights', 'url' => ['/site#projects']],
             ['label' => 'Publications & Projects', 'url' => ['/publication/group-publication']],
+            ['label' => 'Contact', 'url' => ['/site#contact']],
             Yii::$app->user->isGuest ?
                 ['label' => 'Login', 'url' => ['/site/login']]
                 : ['label' => 'Management',
