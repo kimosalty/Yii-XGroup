@@ -28,8 +28,8 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-<div id="header" style="position: sticky; top: 0;">
-    <div id="logo" class="pull-left" style="margin-left: 20%;">
+<div id="header">
+    <div id="logo" class="pull-left">
         <h1><a href="/?r=site/index" class="scrollto"><span>X-Group</span></a></h1>
     </div>
     <?php
@@ -90,29 +90,19 @@ AppAsset::register($this);
     ?>
 
 </div>
-
-
-<?= $content ?>
-
-
+<div class="wrap">
+    <div class="container">
+        <?= $content ?>
+    </div>
+</div>
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; X-Group TJU <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Copyright <?= date('Y') ?> X-Group TJU </p>
     </div>
 </footer>
 
 <?php $this->endBody() ?>
-<!--<script type="javascript">-->
-<!--    window.addEventListener('scroll', function () {-->
-<!--        let t = $('body, html').scrollTop();-->
-<!--        if (t > 0) {-->
-<!--            $('.sticky').addClass('sticky-active')-->
-<!--        } else {-->
-<!--            $('.sticky').removeClass('sticky-active')-->
-<!--        }-->
-<!--    })-->
-<!--</script>-->
 </body>
 </html>
 <?php $this->endPage() ?>

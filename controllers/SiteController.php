@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\BannerForm;
 use app\models\News;
 use app\models\Publication;
+use app\models\Project;
 use app\models\Author;
 use app\models\EntryForm;
 use app\models\GroupIndex;
@@ -93,20 +94,29 @@ class SiteController extends Controller
         $banners = array_map(function ($data) {
             return [
                 'content' => '<div class="img" style="background: url(\'' . $data->img_url . '\');" ></div>',
-                'caption' => '<p>' . $data->des . '</p>',
+                'caption' => "<div class='banner-des pull-left'><h1>X-Group of TJU </h1><div class='content'>Something to write on.</div></div>",
                 'options' => ['onclick' => "window.open('" . Utils::fix_url($data->redirect_url) . "','_self')",
                     'style' => 'cursor: pointer;',
                     'class' => 'item'],       //配置对应的样式
             ];
         }, $bannerModel);
 
-        $news = explode(",", $labModel[0]->news);
-        $newsModel = News::find()->where(['in', 'id', $news])->all();
+//        $news = explode(",", $labModel[0]->news);
+//        $newsModel = News::find()->where(['in', 'id', $news])->all();
+        $newsModel = News::find()->orderBy('date DESC')->limit(5)->all();
 
-        $publications = explode(",", $labModel[0]->publications);
-        $publicationModel = Publication::find()->where(['in', 'publication.id', $publications])->joinWith(['author'])->asArray()->all();
+//        $publications = explode(",", $labModel[0]->publications);
+//        $publicationModel = Publication::find()->where(['in', 'publication.id', $publications])->joinWith(['author'])->asArray()->all();
+        $publicationModel = Publication::find()->orderBy('time DESC')->limit(5)->joinWith(['author'])->asArray()->all();
+
+
+        $projects = explode(",", $labModel[0]->highlights);
+        $projectModel = Project::find()->where(['in', 'id', $projects])->all();
+
+
         return $this->render('index', ['banners' => $banners,
-            'news' => $newsModel, 'publications' => $publicationModel]);
+            'news' => $newsModel, 'publications' => $publicationModel,
+            'projects' => $projectModel]);
     }
 
     /**
