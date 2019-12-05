@@ -23,6 +23,7 @@ html, body {
 
 .project-item {
     margin-bottom: 3rem;
+    padding: 0 2rem 2rem 2rem;
     font-size: 20px;
 }
 

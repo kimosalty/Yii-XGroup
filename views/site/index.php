@@ -112,26 +112,26 @@ $this->title = 'X-Group Home';
             <div class="col-md-4 section-heading">
                 <h1>Highlight Projects</h1>
             </div>
-            <div class="col-lg-8 center-block">
-                <?php foreach ($projects as $project): ?>
-                    <div class="col-md-6 project-item">
-                        <div class="row">
-                            <img class="col-sm-12 center-block" src="<?= $project->img ?>"
-                                 alt="publication head image"/>
-                        </div>
-                        <h2 class="project-name text-center"><a href="<?= $project->github ?>"
-                                                                target="_blank"><?= $project->name ?> </a></h2>
-                        <div class="project-intro"><?= Utils::fix_str_length($project->introduction, 100) ?></div>
-                        <div class="project-detail pull-right">Please see
-                            <a class="detail-link underline" href="<?= $project->github ?>" target="_blank">here</a> for
-                            details.
-                        </div>
+            <?php foreach ($projects as $key => $project): ?>
+                <div class="col-md-4 project-item">
+                    <div class="row">
+                        <img class="col-sm-12 center-block" src="<?= $project->img ?>"
+                             alt="publication head image"/>
                     </div>
-                <?php endforeach; ?>
-                <div class="clearfix"></div>
-                <div class="read-more pull-right">
-                    <a href="<?= Url::to(['publication/group-publication#project-list']) ?>">Read More <i class="fa fa-angle-right"></i></a>
+                    <h2 class="project-name text-center"><a href="<?= $project->github ?>"
+                                                            target="_blank"><?= $project->name ?> </a></h2>
+                    <div class="project-intro"><?= Utils::fix_str_length($project->introduction, 100) ?></div>
+                    <div class="project-detail pull-right">Please see
+                        <a class="detail-link underline" href="<?= $project->github ?>" target="_blank">here</a> for
+                        details.
+                    </div>
                 </div>
+            <?php endforeach; ?>
+            <div class="clearfix"></div>
+
+            <div class="read-more col-md-12">
+                <a class="pull-right" href="<?= Url::to(['publication/group-publication#project-list']) ?>">Read More <i
+                            class="fa fa-angle-right"></i></a>
             </div>
         </div>
     </div>

@@ -1,8 +1,10 @@
 <?php
+
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
 use app\models\News;
 use yii\helpers\Url;
+
 ?>
 
 <?php
@@ -22,10 +24,12 @@ $newss = News::findOne($temp);
         <div class="col-md-11">
             <ul>
                 <li>
-                    <h2 class="text-dark font-weight-bold"><a style="color: #0b0b0b"> <?= Html::encode("{$newss->name}") ?>  </a></h2>
+                    <h2 class="text-dark font-weight-bold"><a
+                                style="color: #0b0b0b"> <?= Html::encode("{$newss->name}") ?>  </a></h2>
                     <h4 class="font-weight-light"><?= "({$newss->date})" ?></h4>
                     <h4 class="text-dark " style="text-indent: 2em; line-height: 20px"><?= "{$newss->content}" ?> </h4>
-                    <img src="<?= $newss->image ?>" class="img-responsive center-block img-fluid" alt="新闻插图" width="100%">
+                    <img src="<?= $newss->image ?>" class="img-responsive center-block img-fluid" alt="新闻插图"
+                         width="100%">
                 </li>
                 <h1 class="pb-3 mb-4 text-dark border-bottom font-italic" style="text-align: center"></h1>
             </ul>
@@ -45,7 +49,16 @@ $newss = News::findOne($temp);
                 </li>
             <?php endforeach; ?>
         </ul>
-
+        <form class="form-inline" method="post"
+              action="<?php echo Url::to(['news/group-news']) ?>">
+            <div class="form-group">
+                <label>
+                    <input name="key" style="width: 60%" class="form-control"
+                           value="<?php echo Yii::$app->request->get('key') ?>"/>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </label>
+            </div>
+        </form>
     </div>
 
 </div>
