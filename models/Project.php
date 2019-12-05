@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "project".
@@ -13,11 +14,19 @@ use Yii;
  * @property string $introduction 项目介绍
  * @property int $participants 参与人表编号
  * @property string $cooperator 合作单位
+ * @property string $img
+ * @property string $github
  *
  * @property Participant $participants0
  */
 class Project extends \yii\db\ActiveRecord
 {
+    /**
+     * @var UploadedFile
+     */
+    public $imgFile;
+
+
     /**
      * {@inheritdoc}
      */
@@ -35,7 +44,8 @@ class Project extends \yii\db\ActiveRecord
 //            [['name', 'objective', 'introduction', 'participants', 'cooperator'], 'required'],
             [['introduction'], 'string'],
             [['participants'], 'integer'],
-            [['name', 'objective', 'cooperator'], 'string', 'max' => 1000],
+            [['imgFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'jpg, png'],
+            [['name', 'objective', 'cooperator','img','github'], 'string', 'max' => 1000],
             [['participants'], 'exist', 'skipOnError' => true, 'targetClass' => Participant::className(), 'targetAttribute' => ['participants' => 'id']],
         ];
     }
@@ -52,6 +62,8 @@ class Project extends \yii\db\ActiveRecord
             'introduction' => 'Introduction',
             'participants' => 'Participants',
             'cooperator' => 'Cooperator',
+            'img' => 'Img',
+            'github' => 'Github',
         ];
     }
 
@@ -61,5 +73,17 @@ class Project extends \yii\db\ActiveRecord
     public function getParticipants0()
     {
         return $this->hasOne(Participant::className(), ['id' => 'participants']);
+    }
+
+    public function upload()
+    {
+        if ($this->validate()) {
+            if($this->imgFile != null) {
+                $this->imgFile->saveAs('uploads/projectimg/' . $this->imgFile->baseName . '.' . $this->imgFile->extension);
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 }

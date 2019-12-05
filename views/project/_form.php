@@ -22,6 +22,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'cooperator')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'github')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'imgFile')->fileInput() ?>
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

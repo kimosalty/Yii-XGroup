@@ -62,6 +62,7 @@ $tempName = $request->get("var");
                     <li>项目目标：<?= $project->objective ?></h5></li>
                     <li>项目介绍：</li>
                     <div class="alert alert-secondary" role="alert">
+                        <img src="<?= $project->img ?>" class="img-fluid" style="margin-bottom: 5px">
                         <p><?= $project->introduction ?></p>
                     </div>
                     <li>
@@ -70,6 +71,7 @@ $tempName = $request->get("var");
                         <?= $participant->namefive ?> <?= $participant->namesix ?> <?= $participant->nameseven ?> <?= $participant->nameeight ?>
                     </li>
                     <li>合作单位：<?= $project->cooperator ?></li>
+                    <li>Github：<a href="<?= $project->github ?>"><?= $project->github ?></a></li>
                 </ul>
             </div>
         <?php } ?>
