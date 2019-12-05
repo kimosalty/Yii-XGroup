@@ -10,17 +10,17 @@ AppAsset::addCss($this, Yii::$app->request->baseUrl . "/css/lxp_peopleview.css")
 
 
     <div class="container-fluid">
-        <h1 class="pb-3 mb-4 text-dark border-bottom font-italic" style="text-align: center">
+        <h1 class="pb-3 mb-4 text-dark font-italic font-weight-bold" style="text-align: center; margin-top: 40px">
             OUR TEAM
         </h1>
 
-        <h3 class="pb-3 mb-4 font-italic border-bottom">
+        <h2 class="pb-3 mb-4 text-dark font-weight-bold" style="text-indent: 1em" >
             博士研究生
-        </h3>
-        <div class="row">
+        </h2>
+        <div class="row center-block" style="width: 80%; margin:0 auto">
             <?php foreach ($peoples as $people): ?>
                 <?php if ($people->title=="博士研究生") { ?>
-                    <div class="col-md-3 col-sm-6 mb-2">
+                    <div class="col-md-3 col-sm-6 mb-2 ">
                         <div class="our-team">
                             <div class="pic">
                                 <?php if ($people->img==null) { ?>
@@ -31,7 +31,7 @@ AppAsset::addCss($this, Yii::$app->request->baseUrl . "/css/lxp_peopleview.css")
                             </div>
                             <div class="team-content">
                                 <h3 class="title"><?= $people->leader ?></h3>
-                                <span class="font-italic">方向：<?= $people->keywords ?></span>
+                                <span>方向：<?= $people->keywords ?></span>
                                 <p>邮箱：<?= $people->mail ?></p>
                             </div>
                             <ul class="social">
@@ -47,10 +47,11 @@ AppAsset::addCss($this, Yii::$app->request->baseUrl . "/css/lxp_peopleview.css")
                 <?php } ?>
             <?php endforeach; ?>
         </div>
-        <h3 class="pb-3 mb-4 font-italic border-bottom">
+        <div class="col-md-1"></div>
+        <h2 class="pb-3 mb-4 text-dark font-weight-bold" style="margin-top: 20px; text-indent: 1em">
             硕士研究生
-        </h3>
-        <div class="row">
+        </h2>
+        <div class="row center-block" style="width: 80%; margin:0 auto">
             <?php foreach ($peoples as $people): ?>
                 <?php if ($people->title=="硕士研究生") { ?>
                     <div class="col-md-3 col-sm-6 mb-2">
@@ -64,7 +65,7 @@ AppAsset::addCss($this, Yii::$app->request->baseUrl . "/css/lxp_peopleview.css")
                             </div>
                             <div class="team-content">
                                 <h3 class="title"><?= $people->leader ?></h3>
-                                <span class="font-italic">方向：<?= $people->keywords ?></span>
+                                <span>方向：<?= $people->keywords ?></span>
                                 <p>邮箱：<?= $people->mail ?></p>
                             </div>
                             <ul class="social">
@@ -80,10 +81,10 @@ AppAsset::addCss($this, Yii::$app->request->baseUrl . "/css/lxp_peopleview.css")
                 <?php } ?>
             <?php endforeach; ?>
         </div>
-        <h3 class="pb-3 mb-4 font-italic border-bottom">
+        <h2 class="pb-3 mb-4 text-dark font-weight-bold" style="margin-top: 20px; text-indent: 1em">
             本科生
-        </h3>
-        <div class="row">
+        </h2>
+        <div class="row center-block" style="width: 80%; margin:0 auto">
             <?php foreach ($peoples as $people): ?>
                 <?php if ($people->title=="本科生") { ?>
                     <div class="col-md-3 col-sm-6 mb-2">
@@ -97,7 +98,7 @@ AppAsset::addCss($this, Yii::$app->request->baseUrl . "/css/lxp_peopleview.css")
                             </div>
                             <div class="team-content">
                                 <h3 class="title"><?= $people->leader ?></h3>
-                                <span class="font-italic">方向：<?= $people->keywords ?></span>
+                                <span>方向：<?= $people->keywords ?></span>
                                 <p>邮箱：<?= $people->mail ?></p>
                             </div>
                             <ul class="social">

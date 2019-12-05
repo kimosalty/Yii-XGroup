@@ -29,7 +29,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <div id="header" style="position: sticky; top: 0;">
-    <div id="logo" class="pull-left" style="margin-left: 20%;">
+    <div id="logo" class="pull-left" style="margin-left: 15%;">
         <h1><a href="/?r=site/index" class="scrollto"><span>X-Group</span></a></h1>
     </div>
     <?php

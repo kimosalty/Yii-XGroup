@@ -56,7 +56,7 @@ $this->title = 'X-Group Home';
                                         <strong><?= $item['name'] ?></strong>
                                     </a></h2>
                                 <div class="publication-abstract">
-                                    <?= $item['abstract'] ?>
+                                    <?= mb_substr("{$item['abstract']}", 0, 60) ?>......
                                 </div>
                                 <div class="publication-authors">
                                     <?php $i = 0; ?>

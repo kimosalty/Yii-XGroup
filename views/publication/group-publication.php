@@ -15,7 +15,7 @@ $tempName = $request->get("var");
 
 ?>
 <div class="container-fluid">
-    <h1 class="pb-3 mb-4 text-dark border-bottom font-italic" style="text-align: center">
+    <h1 class="pb-3 mb-4 text-dark font-italic font-weight-bold" style="text-align: center; margin-top: 40px">
         PUBLICATION
     </h1>
     <div class="col-md-12">
@@ -24,7 +24,7 @@ $tempName = $request->get("var");
          || $tempName==$author->namefive || $tempName==$author->namesix || $tempName==$author->nameseven || $tempName==$author->nameeight) { ?>
         <?php foreach ($publications as $publication): ?>
         <?php if ($publication->authorid==$author->id) { ?>
-            <div class="card card-body mb-2">
+            <div class="card card-body mb-2" style="width: 80%; margin:0 auto">
                 <div>
                     <p><a href="<?php echo Url::to(['publication/one-publication','var2' => $publication->name]) ?>">《<?= $publication->name ?>》</a> <?= $publication->place ?>, <?= $publication->time ?></p>
                 </div>
@@ -35,9 +35,9 @@ $tempName = $request->get("var");
                         <?= $author->namefive ?> <?= $author->namesix ?> <?= $author->nameseven ?> <?= $author->nameeight ?>
                     </li>
                     <li>论文概要：</li>
-                    <div class="alert alert-secondary text-center" role="alert">
-                        <img src="<?= $publication->img ?>" class="img-fluid">
-                        <p><?= $publication->abstract ?></p>
+                    <div class="alert alert-secondary text-center" role="alert" style="background-color: #e5e5e5; margin:0 auto">
+                        <img src="<?= $publication->img ?>" class="img-fluid" style="margin-bottom: 5px">
+                        <p style="width: 90%; text-indent: 2em;margin:0 auto;line-height: 30px;"><?= $publication->abstract ?></p>
                     </div>
                 </ul>
             </div>
@@ -47,7 +47,7 @@ $tempName = $request->get("var");
         <?php endforeach; ?>
     </div>
 
-    <h1 class="pb-3 mb-4 text-dark border-bottom font-italic" style="text-align: center">
+    <h1 class="pb-3 mb-4 text-dark font-italic font-weight-bold" style="text-align: center; margin-top: 40px">
         PROJECT
     </h1>
     <div class="col-md-12">

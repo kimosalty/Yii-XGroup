@@ -15,17 +15,17 @@ if (isset($_POST["sub"])) {
 $newss = News::findOne($temp);
 ?>
 <div class="container-fluid">
-    <h1 class="pb-3 mb-4 text-dark border-bottom font-italic" style="text-align: center">
+    <h1 class="pb-3 mb-4 text-dark font-italic font-weight-bold" style="text-align: center; margin-top: 40px">
         NEWS
     </h1>
-    <div class="col-md-9">
+    <div class="col-md-9 border-right">
         <div class="col-md-11">
             <ul>
                 <li>
-                    <h3><a style="color: #0b0b0b"> <?= Html::encode("{$newss->name}") ?>  </a></h3>
-                    <h5 class="lead"> <?= "({$newss->date})" ?></h5>
-                    <h4><?= "{$newss->content}" ?> </h4>
-                    <img href=<?= "{$newss->href}" ?> src=<?= $newss->image ?> class="img-responsive center-block" alt="新闻插图">
+                    <h2 class="text-dark font-weight-bold"><a style="color: #0b0b0b"> <?= Html::encode("{$newss->name}") ?>  </a></h2>
+                    <h4 class="font-weight-light"><?= "({$newss->date})" ?></h4>
+                    <h4 class="text-dark " style="text-indent: 2em; line-height: 20px"><?= "{$newss->content}" ?> </h4>
+                    <img src="<?= $newss->image ?>" class="img-responsive center-block img-fluid" alt="新闻插图" width="100%">
                 </li>
                 <h1 class="pb-3 mb-4 text-dark border-bottom font-italic" style="text-align: center"></h1>
             </ul>
@@ -33,9 +33,10 @@ $newss = News::findOne($temp);
 
     </div>
 
-    <div class="col-md-3 text-dark border-left font-italic">
-        <h2 class="pb-3 mb-4">Recent News</h2>
-        <ul>
+    <div class="col-md-3 text-dark">
+
+        <h2 class="pb-3 mb-4 font-weight-bold font-weight-bold">Recent News</h2>
+        <ul class="">
             <?php foreach ($news as $newss): ?>
                 <li>
                     <h5><a style="color: #0b0b0b"
