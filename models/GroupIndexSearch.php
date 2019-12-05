@@ -18,7 +18,7 @@ class GroupIndexSearch extends GroupIndex
     {
         return [
             [['id'], 'integer'],
-            [['imgs', 'highlights', 'events', 'news'], 'safe'],
+            [['imgs', 'highlights', 'events', 'news', 'publications'], 'safe'],
         ];
     }
 
@@ -64,7 +64,8 @@ class GroupIndexSearch extends GroupIndex
         $query->andFilterWhere(['like', 'imgs', $this->imgs])
             ->andFilterWhere(['like', 'highlights', $this->highlights])
             ->andFilterWhere(['like', 'events', $this->events])
-            ->andFilterWhere(['like', 'news', $this->news]);
+            ->andFilterWhere(['like', 'news', $this->news])
+            ->andFilterWhere(['like', 'publications', $this->publications]);
 
         return $dataProvider;
     }

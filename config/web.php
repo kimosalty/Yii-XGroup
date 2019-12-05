@@ -9,7 +9,7 @@ $config = [
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
         'request' => [
@@ -53,6 +53,15 @@ $config = [
         */
     ],
     'params' => $params,
+//
+//    'modules' => [
+//        'redactor' => [
+//            'class' => 'yii\redactor\RedactorModule',
+//            'uploadDir' => '上传目录',
+//            'uploadUrl' => '图片可访问地址',
+//            'imageAllowExtensions' => ['jpg', 'png', 'gif','jpeg']
+//        ],
+//    ],
 ];
 
 if (YII_ENV_DEV) {

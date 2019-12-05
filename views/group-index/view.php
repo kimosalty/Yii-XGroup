@@ -34,6 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'highlights',
             'events',
             'news',
+            'publications'
         ],
     ]) ?>
 
