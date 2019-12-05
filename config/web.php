@@ -10,6 +10,7 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+        'uploads' => dirname(dirname(__DIR__).'/web'.'/uploads'),
     ],
     'components' => [
         'request' => [
@@ -53,6 +54,12 @@ $config = [
         */
     ],
     'params' => $params,
+    'modules' => [
+        'redactor' => [
+            'class' => 'yii\redactor\RedactorModule',
+            'imageAllowExtensions'=>['jpg','png','gif'],
+        ]
+    ]
 ];
 
 if (YII_ENV_DEV) {
