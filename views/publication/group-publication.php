@@ -50,7 +50,7 @@ $tempName = $request->get("var");
     <h1 class="pb-3 mb-4 text-dark font-italic font-weight-bold" style="text-align: center; margin-top: 40px">
         PROJECT
     </h1>
-    <div class="col-md-12">
+    <div class="col-md-12" id="project-list">
         <?php foreach ($participants as $participant): ?>
         <?php if ($tempName==$participant->nameone || $tempName==$participant->nametwo || $tempName==$participant->namethree || $tempName==$participant->namefour
         || $tempName==$participant->namefive || $tempName==$participant->namesix || $tempName==$participant->nameseven || $tempName==$participant->nameeight) { ?>

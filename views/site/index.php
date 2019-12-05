@@ -130,7 +130,7 @@ $this->title = 'X-Group Home';
                 <?php endforeach; ?>
                 <div class="clearfix"></div>
                 <div class="read-more pull-right">
-                    <a href="<?= Url::to(['publication/group-publication']) ?>">Read More <i class="fa fa-angle-right"></i></a>
+                    <a href="<?= Url::to(['publication/group-publication#project-list']) ?>">Read More <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
         </div>
