@@ -1,6 +1,83 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+html, body {
+    scroll-behavior: smooth;
+}
+
+
+.contact-wrapper {
+    font-size: 2.2rem;
+    margin-bottom: 15rem;
+}
+
+.project-section-heading {
+    margin-bottom: 1rem;
+}
+
+.project-item .project-name {
+    text-decoration: underline;
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+
+.project-item {
+    margin-bottom: 3rem;
+    padding: 0 2rem 2rem 2rem;
+    font-size: 20px;
+}
+
+.project-item .project-detail {
+    margin-top: 2rem;
+}
+
+.project-item .detail-link {
+    color: #3f51b5;
+    transition: color 0.6s ease;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.banner-des {
+    margin-bottom: 10%;
+}
+
+.banner-des h1 {
+    font-size: 6rem;
+}
+
+.banner-des .content {
+    font-size: 2rem;
+}
+
+.publication-item h2 {
+    margin: 0;
+}
+
+.publication-journal {
+    font-size: .8rem;
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    margin: .2rem 0;
+    padding-left: .3rem;
+}
+
+.btn-outline-primary {
+    color: #546787;
+    border-color: #546787;
+    margin-top: 1rem;
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #546787;
+    border-color: #546787;
+
+}
+
+
 .publication-img {
     position: relative;
     top: 50%;
@@ -96,22 +173,27 @@
     background-attachment: fixed !important;
 }
 
-
-.sticky {
-    position: relative;
-    height: 80px;
+.home-container {
+    max-width: 62%;
     width: 100%;
-    z-index: 999;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-.sticky-active {
-    position: fixed;
+#logo {
+    margin-left: 20%;
+}
+
+#header {
+    position: sticky;
+    position: -webkit-sticky;
     top: 0;
 }
 
+
 @media (min-width: 1200px) {
     .container {
-        max-width: 62%;
+        max-width: 75%;
     }
 }
 
@@ -145,12 +227,17 @@ body {
     background: #fff;
     color: #444;
     font-family: "Open Sans", sans-serif;
+    height: auto;
 }
 
 a {
     color: #555555;
     transition: 0.5s;
 }
+
+/*a:hover {*/
+/*    color: #555555;*/
+/*}*/
 
 
 p {

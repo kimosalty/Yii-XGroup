@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\BannerForm;
 use app\models\News;
 use app\models\Publication;
+use app\models\Project;
 use app\models\Author;
 use app\models\EntryForm;
 use app\models\GroupIndex;
@@ -86,27 +87,45 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $labModel = GroupIndex::find()->all();
-//        array_map('intval', explode(',', $labModel[0]->imgs));
-        $imgs = explode(",", $labModel[0]->imgs);
+        $labModel = GroupIndex::find()->one();
+//        array_map('intval', explode(',', $labModel->imgs));
+        $imgs = explode(",", $labModel->imgs);
         $bannerModel = BannerForm::find()->where(['in', 'id', $imgs])->all();
         $banners = array_map(function ($data) {
             return [
                 'content' => '<div class="img" style="background: url(\'' . $data->img_url . '\');" ></div>',
-                'caption' => '<p>' . $data->des . '</p>',
+                'caption' => "<div class='banner-des pull-left'><h1>X-Group of TJU </h1><div class='content'>Something to write on.</div></div>",
                 'options' => ['onclick' => "window.open('" . Utils::fix_url($data->redirect_url) . "','_self')",
                     'style' => 'cursor: pointer;',
                     'class' => 'item'],       //配置对应的样式
             ];
         }, $bannerModel);
 
-        $news = explode(",", $labModel[0]->news);
-        $newsModel = News::find()->where(['in', 'id', $news])->all();
+        if ($labModel->news != '') {
+            $news = explode(",", $labModel->news);
+            $newsModel = News::find()->where(['in', 'id', $news])->all();
+        } else {
+            $newsModel = News::find()->orderBy('date DESC')->limit(5)->all();
+        }
 
-        $publications = explode(",", $labModel[0]->publications);
-        $publicationModel = Publication::find()->where(['in', 'publication.id', $publications])->joinWith(['author'])->asArray()->all();
+        if ($labModel->publications != '') {
+            $publications = explode(",", $labModel->publications);
+            $publicationModel = Publication::find()->where(['in', 'publication.id', $publications])->joinWith(['author'])->asArray()->all();
+        } else {
+            $publicationModel = Publication::find()->orderBy('time DESC')->limit(5)->joinWith(['author'])->asArray()->all();
+        }
+
+        if ($labModel->highlights != '') {
+            $projects = explode(",", $labModel->highlights);
+            $projectModel = Project::find()->where(['in', 'id', $projects])->all();
+        } else {
+            $projectModel = Project::find()->orderBy('id DESC')->limit(5)->all();
+        }
+
+
         return $this->render('index', ['banners' => $banners,
-            'news' => $newsModel, 'publications' => $publicationModel]);
+            'news' => $newsModel, 'publications' => $publicationModel,
+            'projects' => $projectModel]);
     }
 
     /**

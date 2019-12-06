@@ -11,6 +11,7 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
         'uploads' => dirname(dirname(__DIR__).'/web'.'/uploads'),
+        '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
         'request' => [
@@ -60,6 +61,15 @@ $config = [
             'imageAllowExtensions'=>['jpg','png','gif'],
         ]
     ]
+//
+//    'modules' => [
+//        'redactor' => [
+//            'class' => 'yii\redactor\RedactorModule',
+//            'uploadDir' => '上传目录',
+//            'uploadUrl' => '图片可访问地址',
+//            'imageAllowExtensions' => ['jpg', 'png', 'gif','jpeg']
+//        ],
+//    ],
 ];
 
 if (YII_ENV_DEV) {

@@ -26,10 +26,10 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body id="body">
 <?php $this->beginBody() ?>
-<div id="header" style="position: sticky; top: 0;">
-    <div id="logo" class="pull-left" style="margin-left: 20%;">
+<div id="header">
+    <div id="logo" class="pull-left">
         <h1><a href="/?r=site/index" class="scrollto"><span>X-Group</span></a></h1>
     </div>
     <?php
@@ -42,11 +42,14 @@ AppAsset::register($this);
         'encodeLabels' => false,
         'activateParents' => true,
         'items' => [
-//            ['label' => 'Group Index', 'url' => ['/site/index']],
-            ['label' => 'Homepage', 'url' => ['/home/index'], /*'linkOptions' => ['target' => '_blank']*/],
+            ['label' => 'Home', 'url' => ['/site#body']],
+//            ['label' => 'Homepage', 'url' => ['/home/index'], /*'linkOptions' => ['target' => '_blank']*/],
             ['label' => 'News', 'url' => ['/news/group-news']],
             ['label' => 'Members', 'url' => ['/member/group-member']],
+            ['label' => 'Highlights', 'url' => ['/site#projects']],
             ['label' => 'Publications & Projects', 'url' => ['/publication/group-publication']],
+            ['label' => 'resources', 'url' => ['/resources/dataset']],
+            ['label' => 'Contact', 'url' => ['/site#contact']],
             Yii::$app->user->isGuest ?
                 ['label' => 'Login', 'url' => ['/site/login']]
                 : ['label' => 'Management',
@@ -64,12 +67,19 @@ AppAsset::register($this);
                             ['label' => 'Index Banners', 'url' => '/?r=banner']
                         ]],
                     ['label' => 'Group Members', 'url' => '/?r=member',
-                        'template' => '<a href="{url}" >{label}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-caret-right"></i></a>',
+                        'template' => '<a href="{url}" >{label}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-caret-right"></i></a>',
                         'items' => [
                             ['label' => 'Member Projects', 'url' => '/?r=project'],
                             ['label' => 'Project Participants', 'url' => '/?r=participant'],
                             ['label' => 'Member Publication', 'url' => '/?r=publication'],
-                            ['label' => 'Publication Authors', 'url' => '/?r=author']
+                            ['label' => 'Publication Authors', 'url' => '/?r=author'],
+                            ['label' => 'Add Members', 'url' => '/?r=member']
+                        ]],
+                    ['label' => 'Group Resources', 'url' => '/?r=dataset',
+                        'template' => '<a href="{url}" >{label}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-caret-right"></i></a>',
+                        'items' => [
+                            ['label' => 'dataset', 'url' => '/?r=dataset'],
+                            ['label' => 'meeting', 'url' => '/?r=meeting'],
                         ]],
                     ['label' => 'Group News', 'url' => '/?r=news'],
 
@@ -90,29 +100,23 @@ AppAsset::register($this);
     ?>
 
 </div>
-
-
-<?= $content ?>
-
-
+<div class="wrap">
+    <div class="container">
+        <?= Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
+        <?= Alert::widget() ?>
+        <?= $content ?>
+    </div>
+</div>
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; X-Group TJU <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Copyright <?= date('Y') ?> X-Group TJU </p>
     </div>
 </footer>
 
 <?php $this->endBody() ?>
-<!--<script type="javascript">-->
-<!--    window.addEventListener('scroll', function () {-->
-<!--        let t = $('body, html').scrollTop();-->
-<!--        if (t > 0) {-->
-<!--            $('.sticky').addClass('sticky-active')-->
-<!--        } else {-->
-<!--            $('.sticky').removeClass('sticky-active')-->
-<!--        }-->
-<!--    })-->
-<!--</script>-->
 </body>
 </html>
 <?php $this->endPage() ?>

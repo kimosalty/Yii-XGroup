@@ -18,7 +18,7 @@ class ProjectSearch extends Project
     {
         return [
             [['id', 'participants'], 'integer'],
-            [['name', 'objective', 'introduction', 'cooperator'], 'safe'],
+            [['name', 'objective', 'introduction', 'cooperator','img','github'], 'safe'],
         ];
     }
 
@@ -65,7 +65,9 @@ class ProjectSearch extends Project
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'objective', $this->objective])
             ->andFilterWhere(['like', 'introduction', $this->introduction])
-            ->andFilterWhere(['like', 'cooperator', $this->cooperator]);
+            ->andFilterWhere(['like', 'cooperator', $this->cooperator])
+            ->andFilterWhere(['like', 'img', $this->img])
+            ->andFilterWhere(['like', 'github', $this->github]);
 
         return $dataProvider;
     }

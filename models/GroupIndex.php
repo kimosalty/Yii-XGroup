@@ -29,7 +29,7 @@ class GroupIndex extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['imgs', 'highlights', 'events', 'news'], 'string', 'max' => 255],
+            [['imgs', 'highlights', 'events', 'news', 'publications'], 'string', 'max' => 255],
         ];
     }
 
@@ -44,6 +44,7 @@ class GroupIndex extends \yii\db\ActiveRecord
             'highlights' => 'Highlights',
             'events' => 'Events',
             'news' => 'News',
+            'publications' => 'Publications',
         ];
     }
 }

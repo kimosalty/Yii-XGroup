@@ -8,6 +8,7 @@ use app\models\ProjectSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ProjectController implements the CRUD actions for Project model.
@@ -66,9 +67,21 @@ class ProjectController extends Controller
     {
         $model = new Project();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if (Yii::$app->request->isPost) {
+            $model->imgFile = UploadedFile::getInstance($model, 'imgFile');
+            if ($model->upload()) {
+                // 文件上传成功
+                if($model->imgFile!=null){
+                    $model->img = 'uploads/projectimg/' . $model->imgFile->baseName . '.' . $model->imgFile->extension;
+                }else{
+                    $model->img = '';
+                }
+                if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
+            }
         }
+
 
         return $this->render('create', [
             'model' => $model,
@@ -86,8 +99,17 @@ class ProjectController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if (Yii::$app->request->isPost) {
+            $model->imgFile = UploadedFile::getInstance($model, 'imgFile');
+            if ($model->upload()) {
+                // 文件上传成功
+                if($model->imgFile!=null){
+                    $model->img = 'uploads/projectimg/' . $model->imgFile->baseName . '.' . $model->imgFile->extension;
+                }
+                if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
+            }
         }
 
         return $this->render('update', [

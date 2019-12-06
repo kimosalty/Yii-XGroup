@@ -43,7 +43,7 @@ blockquote:before, blockquote:after {content: ""}
 
 body           {font-size:18px; font-family:"Myriad Pro Regular",Helvetica,sans-serif; color:#555 }
 h1             {font-size:30px; margin-top:40px}
-h1 a           {color: #7e513c}
+h1 a           {color: #454646}
 p              {margin:15px 0; line-height:1.5em; text-align:justify}
 a              {color:#545976; text-decoration:none}
 a:hover        {padding-bottom: 1px; color:#9a9cb5; border-bottom:1px solid #9a9cb5}

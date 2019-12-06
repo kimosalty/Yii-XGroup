@@ -35,6 +35,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'introduction:ntext',
             'participants',
             'cooperator',
+            'github',
+            'img'
         ],
     ]) ?>
 

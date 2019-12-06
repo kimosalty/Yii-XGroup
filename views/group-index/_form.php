@@ -19,6 +19,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'events')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'news')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'publications')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
