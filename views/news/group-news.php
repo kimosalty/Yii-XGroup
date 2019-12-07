@@ -51,9 +51,9 @@ use yii\helpers\Url;
               action="<?php echo Url::to(['news/group-news']) ?>">
             <div class="form-group">
                 <label>
-                    <input name="key" style="width: 60%" class="form-control"
+                    <input name="key" style="width: 60%; height: auto" class="form-control"
                            value="<?php echo Yii::$app->request->get('key') ?>"/>
-                    <button type="submit" class="btn btn-default">Search</button>
+                    <button type="submit" class="btn btn-default" style="background-color: #bebebe">Search</button>
                 </label>
             </div>
         </form>

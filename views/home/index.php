@@ -13,6 +13,7 @@ use yii\widgets\LinkPager;
 <?php $this->beginPage() ?>
 <head>
     <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
 <div class="ace-wrapper">
     <header id="ace-header" class="ace-container-shift ace-logo-in ace-head-boxed ace-nav-right">

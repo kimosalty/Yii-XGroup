@@ -32,6 +32,13 @@ AppAsset::register($this);
     <div id="logo" class="pull-left">
         <h1><a href="/?r=site/index" class="scrollto"><span>X-Group</span></a></h1>
     </div>
+
+<!--    <div id="ace-head-col3" class="ace-head-col pull-right">-->
+<!--        <button id="ace-sidebar-btn" class="btn btn-icon btn-light btn-shade">-->
+<!--            <span class="ace-icon ace-icon-side-bar-icon"></span>-->
+<!--        </button>-->
+<!--    </div>-->
+
     <?php
     NavBar::begin(['options' => [
         'class' => 'navbar-fixed-top',
@@ -46,7 +53,7 @@ AppAsset::register($this);
 //            ['label' => 'Homepage', 'url' => ['/home/index'], /*'linkOptions' => ['target' => '_blank']*/],
             ['label' => 'News', 'url' => ['/news/group-news']],
             ['label' => 'Members', 'url' => ['/member/group-member']],
-            ['label' => 'Highlights', 'url' => ['/site#projects']],
+//            ['label' => 'Highlights', 'url' => ['/site#projects']],
             ['label' => 'Publications & Projects', 'url' => ['/publication/group-publication']],
             ['label' => 'resources', 'url' => ['/resources/dataset']],
             ['label' => 'Contact', 'url' => ['/site#contact']],
@@ -100,6 +107,7 @@ AppAsset::register($this);
     ?>
 
 </div>
+
 <div class="wrap">
     <div class="container">
         <?= Breadcrumbs::widget([
