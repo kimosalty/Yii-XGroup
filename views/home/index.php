@@ -6,12 +6,14 @@
 $this->title = 'homepage';
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\LinkPager;
 
 ?>
 <?php $this->beginPage() ?>
 <head>
     <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
 <div class="ace-wrapper">
     <header id="ace-header" class="ace-container-shift ace-logo-in ace-head-boxed ace-nav-right">
@@ -63,7 +65,9 @@ use yii\widgets\LinkPager;
                                         <article id="ace-card" class="ace-card bg-profile">
                                             <div class="ace-card-inner text-center">
                                                 <img class="avatar avatar-195"
-                                                     src="./img/<?php echo $staffs[0]['Image'] ?>" width="195"
+                                                     src="<?php
+                                                     $var = substr($staffs[0]['Image'], strpos($staffs[0]['Image'], '/')+1);
+                                                     echo  Url::to("@web/{$var}"   ); ?>" width="195"
                                                      height="195" alt="">
                                                 <h1> <?php echo $staffs[0]['Name'] ?> </h1>
                                                 <p class="text-muted">Florist | Decorator</p>

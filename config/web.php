@@ -9,6 +9,8 @@ $config = [
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
+        '@npm'   => '@vendor/npm-asset',
+        'uploads' => dirname(dirname(__DIR__).'/web'.'/uploads'),
         '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
@@ -53,6 +55,12 @@ $config = [
         */
     ],
     'params' => $params,
+    'modules' => [
+        'redactor' => [
+            'class' => 'yii\redactor\RedactorModule',
+            'imageAllowExtensions'=>['jpg','png','gif'],
+        ]
+    ]
 //
 //    'modules' => [
 //        'redactor' => [

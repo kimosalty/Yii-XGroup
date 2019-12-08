@@ -15,14 +15,12 @@ $paperName = $request->get("var2");
     <?php if ($publication->name==$paperName) { ?>
         <div id="wrapper">
 
-            <div id="journal"><?= $publication->place ?></div>
-            <div id="title">
-                <a href="" class="nounderline"><?= $publication->name ?></a>
-            </div>
+            <div class="text-dark" style="text-align: center; font-size: 15px;"><?= $publication->place ?></div>
+            <div class="text-dark font-weight-bold" style="text-align: center; margin-top: 10px; font-size: 30px;"><?= $publication->name ?></div>
 
             <a href="" class="nounderline"><img src="<?= $publication->img ?>" id="teaser" class="img-fluid"></a>
         </div>
-        <div id="content">
+        <div id="content" >
             <h1><a id="abstract" href="">Abstract</a></h1>
             <p><?= $publication->abstract ?></p>
         </div>

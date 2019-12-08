@@ -22,8 +22,8 @@ html, body {
 }
 
 .project-item {
-    margin-bottom: 3rem;
-    padding: 0 2rem 2rem 2rem;
+    margin-bottom: 1rem;
+    /*padding: 0 2rem 2rem 2rem;*/
     font-size: 20px;
 }
 
@@ -107,7 +107,7 @@ html, body {
 }
 
 .read-more {
-    margin-top: 2rem;
+    /*margin-top: 2rem;*/
     font-size: 2.6rem;
 }
 
@@ -140,7 +140,7 @@ html, body {
 
 .home-section {
     background-color: #fff;
-    padding: 110px 0 110px 0;
+    padding: 20px 0;
     animation: intro 0.3s both;
     animation-delay: 0.15s;
 }
@@ -193,7 +193,7 @@ html, body {
 
 @media (min-width: 1200px) {
     .container {
-        max-width: 62%;
+        max-width: 75%;
     }
 }
 
@@ -227,7 +227,7 @@ body {
     background: #fff;
     color: #444;
     font-family: "Open Sans", sans-serif;
-    height: auto;
+    height: 100%;
 }
 
 a {
@@ -337,8 +337,8 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-    padding: 20px 0;
-    height: 84px;
+    padding: 10px 0;
+    height: 70px;
     transition: all 0.5s;
     z-index: 997;
     background: #fff;

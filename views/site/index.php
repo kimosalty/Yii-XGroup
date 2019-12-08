@@ -40,8 +40,8 @@ $this->title = 'X-Group';
                         <span class="date"><?= date_format(date_create($item->date), "M d, Y.") ?></span>
                     </div>
                 <?php endforeach; ?>
-                <div class="read-more">
-                    <a href="<?= Url::to(['news/group-news']) ?>">Read More <i class="fa fa-angle-right"></i></a>
+                <div class="read-more col-md-12">
+                    <a class="pull-left" href="<?= Url::to(['news/group-news']) ?>">more <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -97,8 +97,8 @@ $this->title = 'X-Group';
                         </div>
                     </div>
                 <?php endforeach; ?>
-                <div class="read-more">
-                    <a href="<?= Url::to(['publication/group-publication']) ?>">Read More <i
+                <div class="read-more col-md-12">
+                    <a class="pull-left" href="<?= Url::to(['publication/group-publication']) ?>">more <i
                                 class="fa fa-angle-right"></i></a>
                 </div>
             </div>
@@ -112,8 +112,9 @@ $this->title = 'X-Group';
             <div class="col-md-4 section-heading">
                 <h1>Highlight Projects</h1>
             </div>
-            <?php foreach ($projects as $key => $project): ?>
-                <div class="col-md-4 project-item">
+            <div class="col-md-8">
+                <?php foreach ($projects as $key => $project): ?>
+                <div class="col-md-6 project-item">
                     <div class="row">
                         <img class="col-sm-12 center-block" src="<?= $project->img ?>"
                              alt="publication head image"/>
@@ -126,13 +127,15 @@ $this->title = 'X-Group';
                         details.
                     </div>
                 </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+
+                <div class="read-more col-md-12">
+                    <a class="pull-left" href="<?= Url::to(['publication/group-publication#project-list']) ?>">more <i
+                                class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
             <div class="clearfix"></div>
 
-            <div class="read-more col-md-12">
-                <a class="pull-right" href="<?= Url::to(['publication/group-publication#project-list']) ?>">Read More <i
-                            class="fa fa-angle-right"></i></a>
-            </div>
         </div>
     </div>
 </section>
