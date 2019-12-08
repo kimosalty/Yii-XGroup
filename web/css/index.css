@@ -127,7 +127,9 @@ html, body {
     text-decoration: none;
     transition: color 0.6s ease;
 }
-
+.news-section{
+    min-height: 300px;
+}
 .news-section a:hover, .read-more a:hover {
     text-decoration: underline !important;
 }
@@ -227,7 +229,7 @@ body {
     background: #fff;
     color: #444;
     font-family: "Open Sans", sans-serif;
-    height: 100%;
+    height: auto;
 }
 
 a {

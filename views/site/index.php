@@ -41,7 +41,7 @@ $this->title = 'X-Group';
                     </div>
                 <?php endforeach; ?>
                 <div class="read-more col-md-12">
-                    <a class="pull-left" href="<?= Url::to(['news/group-news']) ?>">more <i class="fa fa-angle-right"></i></a>
+                    <a class="pull-right" href="<?= Url::to(['news/group-news']) ?>">more <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -98,7 +98,7 @@ $this->title = 'X-Group';
                     </div>
                 <?php endforeach; ?>
                 <div class="read-more col-md-12">
-                    <a class="pull-left" href="<?= Url::to(['publication/group-publication']) ?>">more <i
+                    <a class="pull-right" href="<?= Url::to(['publication/group-publication']) ?>">more <i
                                 class="fa fa-angle-right"></i></a>
                 </div>
             </div>
@@ -130,7 +130,7 @@ $this->title = 'X-Group';
                 <?php endforeach; ?>
 
                 <div class="read-more col-md-12">
-                    <a class="pull-left" href="<?= Url::to(['publication/group-publication#project-list']) ?>">more <i
+                    <a class="pull-right" href="<?= Url::to(['publication/group-publication#project-list']) ?>">more <i
                                 class="fa fa-angle-right"></i></a>
                 </div>
             </div>

@@ -53,7 +53,9 @@ use yii\helpers\Url;
                 <label>
                     <input name="key" style="width: 60%; height: auto" class="form-control"
                            value="<?php echo Yii::$app->request->get('key') ?>"/>
-                    <button type="submit" class="btn btn-default" style="background-color: #bebebe">Search</button>
+                    &nbsp;
+                    &nbsp;
+                    <button type="submit" class="btn btn-default" style="line-height: 1.5rem;">Search</button>
                 </label>
             </div>
         </form>
