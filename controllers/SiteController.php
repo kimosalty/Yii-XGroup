@@ -122,7 +122,6 @@ class SiteController extends Controller
             $projectModel = Project::find()->orderBy('id DESC')->limit(5)->all();
         }
 
-
         return $this->render('index', ['banners' => $banners,
             'news' => $newsModel, 'publications' => $publicationModel,
             'projects' => $projectModel]);

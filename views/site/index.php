@@ -10,7 +10,7 @@ use yii\helpers\Url;
 /* @var $publications */
 /* @var $projects */
 
-$this->title = 'X-Group Home';
+$this->title = 'X-Group';
 //?>
 
 <?= Carousel::widget([
